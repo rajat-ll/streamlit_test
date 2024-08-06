@@ -25,5 +25,5 @@ apache-airflow-providers-snowflake
 scipy
 tqdm
 streamlit
-yaml
+PyYAML
 snowpark
