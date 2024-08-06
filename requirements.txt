@@ -26,4 +26,3 @@ scipy
 tqdm
 streamlit
 PyYAML
-snowpark
