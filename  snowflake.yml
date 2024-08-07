@@ -5,4 +5,4 @@ streamlit:
   main_file: Streamlit_Python_files/main.py
   env_file: Streamlit_Python_files/env_det.yml
   database: LL_PROD_RAW_ZONE
-  schema: PUBLIC
+  schema: STREAMLIT_USER
