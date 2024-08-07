@@ -1,7 +1,7 @@
 snowflake:
-  sf_user: MIS_USER
-  sf_password: Devops@mis_user2024
-  sf_account: qg94313.ap-south-1.aws
+  sf_user: rajat
+  sf_password: Rajattiwari@007
+  sf_account: qg94313.ap-south-1
   sf_warehouse: LL_STG_WH
   sf_prod_database: LL_PROD_RAW_ZONE
   sf_stg_database: LL_STG_RAW_ZONE
