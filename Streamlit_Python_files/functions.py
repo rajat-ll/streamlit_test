@@ -3,6 +3,7 @@ import snowflake.connector
 import yaml
 from snowflake.snowpark import Session
 from snowflake.snowpark.context import get_active_session
+import streamlit as st
 
 with open("env_det.yml", 'r') as stream:
     config = yaml.safe_load(stream)
@@ -118,3 +119,27 @@ def apply_filters(df, filters):
     for column, value in filters.items():
         filtered_df = filtered_df[filtered_df[column] == value]
     return filtered_df
+
+def load_and_display_csv(conn, file_name, file_path):
+    # Create a table for each file
+    create_table_query = f"""
+    CREATE OR REPLACE TABLE {file_name} (
+        data_variant VARIANT
+    );
+    """
+    conn.cursor().execute(create_table_query)
+
+    # Load data from the staged file into the table
+    copy_into_query = f"""
+    COPY INTO {file_name}
+    FROM @DATA_EDIT_UI_RAJAT/{file_path}
+    FILE_FORMAT = (TYPE = 'CSV' FIELD_OPTIONALLY_ENCLOSED_BY = '"' 
+                   SKIP_HEADER = 1);
+    """
+    conn.cursor().execute(copy_into_query)
+
+    # Query the table and display the data in Streamlit
+    select_query = f"SELECT * FROM {file_name}"
+    data_df = pd.read_sql(select_query, conn)
+    st.write(f"Data from {file_name}:")
+    st.write(data_df)

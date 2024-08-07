@@ -4,8 +4,6 @@ from datetime import datetime
 import json
 import streamlit as st
 import time
-from snowflake.connector.pandas_tools import write_pandas
-from snowflake.snowpark.context import get_active_session
 from functions import st_read_from_snowflake, st_execute_query_on_snowflake, generate_update_query, generate_insert_query, apply_filters
 
 st.set_page_config(layout="centered", initial_sidebar_state="collapsed", page_title="Data Editor", page_icon="🧮")
