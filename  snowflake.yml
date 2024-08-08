@@ -1,6 +1,6 @@
 definition_version: 1
 streamlit:
-  name: Snowflake_Streamlit_Deployment
+  name: data_edit_ui_rajat_test_1
   query_warehouse: LL_STG_WH
   main_file: Streamlit_Python_files/main.py
   env_file: Streamlit_Python_files/env_det.yml
